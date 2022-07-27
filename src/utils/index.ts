@@ -71,12 +71,50 @@ function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
   }
 }
 
-const d1 = makeDate(12345678);
-const d2 = makeDate(5, 5, 5);
-const d3 = makeDate(1, 3);
+// const d1 = makeDate(12345678);
+// const d2 = makeDate(5, 5, 5);
+// const d3 = makeDate(1, 3);
+//
+// function fn(x: string | boolean): void;
+// function fn() {
+//   // ...
+// }
+// fn();
 
-function fn(x: string | boolean): void;
-function fn() {
-  // ...
+// 指定this类型
+interface User {
+  id: number;
+  admin: boolean;
 }
-fn();
+
+declare const getDB: () => DB;
+
+interface DB {
+  filterUser(filter: (this: User) => boolean): User[];
+}
+const db = getDB();
+const admins = db.filterUser(function (this: User) {
+  return this.admin;
+});
+
+// unknown类型
+function safeParse(s: string): unknown {
+  return JSON.parse(s);
+}
+const obj = safeParse("123");
+
+// never类型
+function fn(x: string | number) {
+  if (typeof x === "string") {
+    // do something
+  } else if (typeof x === "number") {
+    // do something else
+  } else {
+    x; // has type 'never'!
+  }
+}
+
+// Function 类型
+// function doSomething(f: Function) {
+//   return f(1, 2, 3);
+// }
