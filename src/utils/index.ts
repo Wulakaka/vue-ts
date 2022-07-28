@@ -30,7 +30,7 @@ const longerArray = longest([1, 2], [1, 2, 3]);
 // longerString is of type 'alice' | 'bob'
 const longerString = longest("alice", "bob");
 // Error! Numbers don't have a 'length' property
-const notOK = longest(10, 100);
+// const notOK = longest(10, 100);
 
 // function minimumLength<Type extends { length: number }>(obj: Type, minimum: number): Type {
 //   if (obj.length > minimum) {
@@ -49,10 +49,10 @@ function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
 const arr = combine<string | number | boolean>([1, 2, 3], ["hello"]);
 
 // 函数中的可选参数
-declare function f(x?: number): void;
-f(10);
+// declare function f(x?: number): void;
+// f(10);
 
-function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
+function myForEach(arr: any[], callback: (arg: any, index: number) => void) {
   for (let i = 0; i < arr.length; i++) {
     callback(arr[i], i);
   }
@@ -87,15 +87,15 @@ interface User {
   admin: boolean;
 }
 
-declare const getDB: () => DB;
-
-interface DB {
-  filterUser(filter: (this: User) => boolean): User[];
-}
-const db = getDB();
-const admins = db.filterUser(function (this: User) {
-  return this.admin;
-});
+// declare const getDB: () => DB;
+//
+// interface DB {
+//   filterUser(filter: (this: User) => boolean): User[];
+// }
+// const db = getDB();
+// const admins = db.filterUser(function (this: User) {
+//   return this.admin;
+// });
 
 // unknown类型
 function safeParse(s: string): unknown {
@@ -118,3 +118,29 @@ function fn(x: string | number) {
 // function doSomething(f: Function) {
 //   return f(1, 2, 3);
 // }
+
+// readonly properties
+interface ReadonlyPerson {
+  readonly name: string;
+  readonly age: number;
+}
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+const person: ReadonlyPerson = {
+  name: "agv",
+  age: 12,
+};
+
+const otherPerson: Person = person;
+otherPerson.name = "123";
+
+// index signature
+interface NumberOrStringDictionary {
+  [index: string]: number | string;
+  length: number; // ok, length is a number
+  name: string; // ok, name is a string
+}
