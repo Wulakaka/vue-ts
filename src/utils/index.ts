@@ -144,3 +144,24 @@ interface NumberOrStringDictionary {
   length: number; // ok, length is a number
   name: string; // ok, name is a string
 }
+
+interface BasicAddress {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+
+interface AddressWithUnit extends BasicAddress {
+  unit: string;
+}
+
+const address: AddressWithUnit = {
+  name: "a",
+  street: "a",
+  city: "a",
+  country: "a",
+  postalCode: "asfd1",
+  unit: "a",
+};
