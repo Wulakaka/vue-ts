@@ -155,6 +155,7 @@ interface BasicAddress {
 
 interface AddressWithUnit extends BasicAddress {
   unit: string;
+  // postalCode: number;
 }
 
 const address: AddressWithUnit = {
@@ -172,6 +173,7 @@ interface Colorful {
 
 interface Circle {
   radius: number;
+  // color: number;
 }
 
 type ColorfulCircle = Colorful & Circle;
