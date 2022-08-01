@@ -184,3 +184,18 @@ function draw(circle: Colorful & Circle) {
 }
 
 draw({ color: "red", radius: 42 });
+
+interface Box<Type> {
+  contents: Type;
+}
+
+let box: Box<string>;
+
+interface Apple {
+  color: string;
+}
+type AppleBox = Box<Apple>;
+
+function setContents<Type>(box: Box<Type>, newContents: Type) {
+  box.contents = newContents;
+}
