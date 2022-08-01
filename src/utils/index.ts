@@ -209,12 +209,12 @@ type OneOrMany<Type> = Type | Type[];
 type OneOrManyOrNull<Type> = OrNull<OneOrMany<Type>>;
 type OneOrManyOrNullString = OneOrManyOrNull<string>;
 
-function doSomething(value: Array<string>) {
-  //.
-}
-const myArray: string[] = ["hello", "world"];
-doSomething(myArray);
-doSomething(["hello", "world"]);
+// function doSomething(value: Array<string>) {
+//   //.
+// }
+// const myArray: string[] = ["hello", "world"];
+// doSomething(myArray);
+// doSomething(["hello", "world"]);
 
 function doStuff(values: ReadonlyArray<string>) {
   // We can read from 'values'
@@ -230,3 +230,23 @@ x = y;
 x = ["1", "2"];
 y.push("123");
 y = x;
+
+type StringNumberPair = [string, number];
+
+function doSomething(stringHash: [string, number]) {
+  const [inputString, hash] = stringHash;
+  console.log(inputString);
+  console.log(hash);
+}
+
+type StringNumberBooleans = [string, number, ...boolean[]];
+type StringBooleansNumber = [string, ...boolean[], number];
+type BooleansStringNumber = [...boolean[], string, number];
+
+const a: StringNumberBooleans = ["hello", 1];
+
+const point = [3, 4] as const;
+function distanceFromOrigin([x, y]: readonly [number, number]) {
+  return Math.sqrt(x ** 2 + y ** 2);
+}
+distanceFromOrigin(point);
