@@ -199,3 +199,12 @@ type AppleBox = Box<Apple>;
 function setContents<Type>(box: Box<Type>, newContents: Type) {
   box.contents = newContents;
 }
+
+type NewBox<Type> = {
+  contents: Type;
+};
+
+type OrNull<Type> = Type | null;
+type OneOrMany<Type> = Type | Type[];
+type OneOrManyOrNull<Type> = OrNull<OneOrMany<Type>>;
+type OneOrManyOrNullString = OneOrManyOrNull<string>;
