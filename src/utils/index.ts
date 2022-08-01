@@ -208,3 +208,25 @@ type OrNull<Type> = Type | null;
 type OneOrMany<Type> = Type | Type[];
 type OneOrManyOrNull<Type> = OrNull<OneOrMany<Type>>;
 type OneOrManyOrNullString = OneOrManyOrNull<string>;
+
+function doSomething(value: Array<string>) {
+  //.
+}
+const myArray: string[] = ["hello", "world"];
+doSomething(myArray);
+doSomething(["hello", "world"]);
+
+function doStuff(values: ReadonlyArray<string>) {
+  // We can read from 'values'
+  const copy = values.slice();
+  console.log(`The first Value is ${values[0]}`);
+  // but we can't mutate 'values'
+  values.push("hello");
+}
+
+let x: readonly string[] = [];
+let y: string[] = [];
+x = y;
+x = ["1", "2"];
+y.push("123");
+y = x;
