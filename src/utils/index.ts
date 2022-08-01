@@ -165,3 +165,20 @@ const address: AddressWithUnit = {
   postalCode: "asfd1",
   unit: "a",
 };
+
+interface Colorful {
+  color: string;
+}
+
+interface Circle {
+  radius: number;
+}
+
+type ColorfulCircle = Colorful & Circle;
+
+function draw(circle: Colorful & Circle) {
+  console.log(`Color was ${circle.color}`);
+  console.log(`Radius was ${circle.radius}`);
+}
+
+draw({ color: "red", radius: 42 });
