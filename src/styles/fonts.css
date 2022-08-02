@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "HYQiHei-55S";
+    src: url("@/assets/fonts/HYQiHei-55S.ttf");
+}
+
+@font-face {
+    font-family: "HYQiHei-85S";
+    src: url("@/assets/fonts/HYQiHei-85S.ttf");
+}
+
+@font-face {
+    font-family: 'HYQiHei';
+    src: url("@/assets/fonts/HYQiHei-55S.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HYQiHei';
+    src: url("@/assets/fonts/HYQiHei-85S.ttf");
+    font-weight: bold;
+}
+
+
+@font-face {
+    font-family: "HYQiHei-65S";
+    src: url("@/assets/fonts/HYQiHei-65S.ttf");
+}
+
+@font-face {
+    font-family: "HYQiHei-75S";
+    src: url("@/assets/fonts/HYQiHei-75S.ttf");
+}

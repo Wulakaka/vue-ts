@@ -221,15 +221,15 @@ function doStuff(values: ReadonlyArray<string>) {
   const copy = values.slice();
   console.log(`The first Value is ${values[0]}`);
   // but we can't mutate 'values'
-  values.push("hello");
+  // values.push("hello");
 }
 
-let x: readonly string[] = [];
-let y: string[] = [];
-x = y;
-x = ["1", "2"];
-y.push("123");
-y = x;
+// let x: readonly string[] = [];
+// let y: string[] = [];
+// x = y;
+// x = ["1", "2"];
+// y.push("123");
+// y = x;
 
 type StringNumberPair = [string, number];
 
