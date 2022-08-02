@@ -250,3 +250,96 @@ function distanceFromOrigin([x, y]: readonly [number, number]) {
   return Math.sqrt(x ** 2 + y ** 2);
 }
 distanceFromOrigin(point);
+
+// 泛型函数
+function identity<Type>(arg: Type): Type {
+  return arg;
+}
+
+// const myIdentity: <Type>(arg: Type) => Type = identity;
+// 调用签名
+// const myIdentity: { <Type>(arg: Type): Type } = identity;
+// 泛型接口
+// interface GenericIdentityFn {
+//   <Type>(arg: Type): Type;
+// }
+// const myIdentity: GenericIdentityFn = identity;
+// 泛型接口-带参数
+interface GenericIdentityFn<Type> {
+  (arg: Type): Type;
+}
+// 会有错误
+type Gen<Type> = {
+  (arg: Type): Type;
+};
+
+const myIdentity: GenericIdentityFn<number> = identity;
+
+// 泛型类
+// class GenericNumber<NumType> {
+//   zeroValue: NumType;
+//   add: (x: NumType, y: NumType) => NumType;
+// }
+//
+// const myGenericNumber = new GenericNumber<number>();
+// myGenericNumber.zeroValue = 0;
+// myGenericNumber.add = function (x, y) {
+//   return x + y;
+// };
+//
+// const stringNumeric = new GenericNumber<string>();
+// stringNumeric.zeroValue = "";
+// stringNumeric.add = function (x, y) {
+//   return x + y;
+// };
+
+// 泛型接口约束
+interface LengthWise {
+  length: number;
+}
+function loggingIdentity<Type extends LengthWise>(arg: Type): Type {
+  console.log(arg.length);
+  return arg;
+}
+
+// 在泛型约束上使用类型参数
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key];
+}
+//
+// const x = { a: 1 };
+// getProperty(x, "a");
+// getProperty(x, "b");
+
+// 在泛型中使用类的类型
+function create<Type>(c: { new (): Type }): Type {
+  return new c();
+}
+
+// 在泛型中使用类类型
+class BeeKeeper {
+  hasMask = true;
+}
+
+class ZooKeeper {
+  nametag = "Mikle";
+}
+
+class Animal {
+  numLegs = 4;
+}
+
+class Bee extends Animal {
+  keeper: BeeKeeper = new BeeKeeper();
+}
+
+class Lion extends Animal {
+  keeper: ZooKeeper = new ZooKeeper();
+}
+
+function createInstance<A extends Animal>(c: new () => A): A {
+  return new c();
+}
+
+createInstance(Lion).keeper.nametag;
+createInstance(Bee).keeper.hasMask;
