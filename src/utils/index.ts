@@ -359,3 +359,9 @@ function f() {
   return { x: 10, y: 3 };
 }
 type P = ReturnType<typeof f>;
+
+// 索引访问类型
+// type Age = Person["age"];
+
+type key = "age";
+type Age = Person[key];
