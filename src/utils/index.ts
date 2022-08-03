@@ -343,3 +343,19 @@ function createInstance<A extends Animal>(c: new () => A): A {
 
 createInstance(Lion).keeper.nametag;
 createInstance(Bee).keeper.hasMask;
+
+// keyof 类型操作符
+type Point = { x: number; y: number };
+type P = keyof Point;
+
+type Arrayish = { [n: number]: unknown; length: number };
+type A = keyof Arrayish;
+
+type Mapish = { [k: string]: boolean };
+type M = keyof Mapish;
+
+// typeof 操作符
+function f() {
+  return { x: 10, y: 3 };
+}
+type P = ReturnType<typeof f>;
