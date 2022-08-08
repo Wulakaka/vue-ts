@@ -243,7 +243,7 @@ type StringNumberBooleans = [string, number, ...boolean[]];
 type StringBooleansNumber = [string, ...boolean[], number];
 type BooleansStringNumber = [...boolean[], string, number];
 
-const a: StringNumberBooleans = ["hello", 1];
+const a1: StringNumberBooleans = ["hello", 1];
 
 const point = [3, 4] as const;
 function distanceFromOrigin([x, y]: readonly [number, number]) {
@@ -358,7 +358,7 @@ type M = keyof Mapish;
 function f() {
   return { x: 10, y: 3 };
 }
-type P = ReturnType<typeof f>;
+type P1 = ReturnType<typeof f>;
 
 // 索引访问类型
 // type Age = Person["age"];

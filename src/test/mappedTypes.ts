@@ -27,34 +27,34 @@ type MaybeUser = {
   name?: string;
   age?: number;
 };
-type User = Concrete<MaybeUser>;
+// type User = Concrete<MaybeUser>;
 
 // remapping
-type MappedTypeWithNewProperties<Type> = {
-  [Property in keyof Type as NewKeyType]: Type[Property];
-};
+// type MappedTypeWithNewProperties<Type> = {
+//   [Property in keyof Type as NewKeyType]: Type[Property];
+// };
 
 type Getters<Type> = {
   [Property in keyof Type as `get${Capitalize<string & Property>}`]: () => Type[Property];
 };
 
-interface Person {
+interface Person1 {
   name: string;
   age: number;
   location: string;
 }
 
-type LazyPerson = Getters<Person>;
+type LazyPerson = Getters<Person1>;
 
 // Remove the 'kind' property
 type RemoveKindField<Type> = {
   [Property in keyof Type as Exclude<Property, "kind">]: Type[Property];
 };
-interface Circle {
+interface Circle1 {
   kind: "circle";
   radius: number;
 }
-type KindlessCircle = RemoveKindField<Circle>;
+type KindlessCircle = RemoveKindField<Circle1>;
 
 type EventConfig<Events extends { kind: string }> = {
   [E in Events as E["kind"]]: (event: E) => void;
