@@ -1,3 +1,4 @@
+export {}
 function firstElement<Type>(arr: Type[]): undefined | Type {
   return arr[0];
 }

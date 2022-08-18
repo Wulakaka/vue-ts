@@ -1,3 +1,4 @@
+export {}
 // Object with Properties
 // Code
 import LogOptions = GreetingLib.LogOptions;
@@ -16,13 +17,13 @@ declare namespace myLib {
 
 // Overloaded Functions
 // Code
-let x: Widget = getWidget(43);
+// let x: Widget = getWidget(43);
 
-let arr: Widget[] = getWidget("all of them");
+// let arr: Widget[] = getWidget("all of them");
 
 // Declaration
-declare function getWidget(n: number): Widget;
-declare function getWidget(s: string): Widget[];
+// declare function getWidget(n: number): Widget;
+// declare function getWidget(s: string): Widget[];
 
 // Reusable Types (Interfaces)
 // Code
@@ -47,7 +48,7 @@ function getGreeting() {
 class MyGreeter extends Greeter {}
 greet1("hello")
 greet1(getGreeting)
-greet1(new MyGreeter())
+// greet1(new MyGreeter())
 
 // Declaration
 // 可以使用类型别名来简化类型
@@ -59,14 +60,14 @@ declare function greet1(g: GreetingLike): void;
 可以传递 LogOptions 给 .log(...) 或传递 AlertOptions 给 .alert(...) */
 
 // Code
-const g = new Greeter("Hello")
-g.log({
-  verbose: true
-})
-g.alert({
-  modal: false,
-  title: 'Current Greeting'
-})
+// const g = new Greeter("Hello")
+// g.log({
+//   verbose: true
+// })
+// g.alert({
+//   modal: false,
+//   title: 'Current Greeting'
+// })
 
 // Declaration
 // 使用命名空间来组织类型
