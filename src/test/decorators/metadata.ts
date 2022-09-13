@@ -5,8 +5,8 @@ class Point {
 }
 
 class Line {
-  private _start: Point;
-  private _end: Point;
+  private _start!: Point;
+  private _end!: Point;
 
   @validate
   set start(value: Point) {

@@ -23,20 +23,20 @@ function validate(target: any, propertyName: string, descriptor: TypedPropertyDe
   };
 }
 
-export class BugReport {
-  type = "report";
-  title: string;
-
-  constructor(t: string) {
-    this.title = t;
-  }
-
-  @validate
-  print(@required verbose: boolean) {
-    if (verbose) {
-      return `type: ${this.type}\n title:${this.title}`;
-    } else {
-      return this.title;
-    }
-  }
-}
+// export class BugReport {
+//   type = "report";
+//   title: string;
+//
+//   constructor(t: string) {
+//     this.title = t;
+//   }
+//
+//   @validate
+//   print(@required verbose: boolean) {
+//     if (verbose) {
+//       return `type: ${this.type}\n title:${this.title}`;
+//     } else {
+//       return this.title;
+//     }
+//   }
+// }

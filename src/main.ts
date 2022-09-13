@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "@/styles/fonts.css";
-import "@/test/decorators";
+import "@/test/classes";
+import "@/test/classes/test";
 
 Vue.config.productionTip = false;
 
