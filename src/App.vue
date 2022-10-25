@@ -1,22 +1,12 @@
 <template>
   <div id="app">
-    <FontExample></FontExample>
-    <!--    <nav>
+    <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav>
-    <router-view />-->
+    <router-view />
   </div>
 </template>
-<script>
-import FontExample from "@/components/FontExample";
-
-export default {
-  components: {
-    FontExample,
-  },
-};
-</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
