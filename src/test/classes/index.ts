@@ -296,4 +296,4 @@ class DerivedBox extends Box {
 
 const base = new Box();
 const derived = new DerivedBox();
-derived.sameAs(base);
+// derived.sameAs(base);
