@@ -29,7 +29,7 @@ function render(props: Props = {}) {
   // appName 为子应用名
   const appName = "vue-ts";
   router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? `/micro/${appName}/` : "/",
+    base: window.__POWERED_BY_QIANKUN__ ? `/micro/${appName}/` /*在主应用中访问子应用的地址的base*/ : "/",
     mode: "history",
     routes,
   });

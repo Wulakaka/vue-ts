@@ -2,7 +2,7 @@ const { defineConfig } = require("@vue/cli-service");
 
 const { name } = require("./package");
 module.exports = defineConfig({
-  publicPath: "./",
+  publicPath: process.env.NODE_ENV === "production" ? `/micro/${name}` : "/",
   transpileDependencies: true,
   devServer: {
     headers: {
